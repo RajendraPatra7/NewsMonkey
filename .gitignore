@@ -12,7 +12,6 @@
 /build
 
 # misc
-/News-App
 .DS_Store
 .env.local
 .env.development.local
