@@ -7,13 +7,13 @@ export class News extends Component {
   static defaultProps = {
     country: "us",
     pageSize: 6,
-    // category: "general",
+    category: "general",
   };
 
   static propTypes = {
     country: PropTypes.string,
     pageSize: PropTypes.number,
-    // category: PropTypes.string,
+    category: PropTypes.string,
   };
 
   constructor() {
@@ -26,7 +26,7 @@ export class News extends Component {
   }
 
   async componentDidMount() {
-    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=d88830c90c13486fb31a3e8449bee67e&page=1&pageSize=${this.props.pageSize}`;
+    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=d88830c90c13486fb31a3e8449bee67e&pageSize=${this.props.pageSize}`;
     this.setState({ loading: true });
     let data = await fetch(url);
     let parsedData = await data.json();
@@ -41,7 +41,7 @@ export class News extends Component {
   handlePrevClick = async () => {
     let url = `https://newsapi.org/v2/top-headlines?country=${
       this.props.country
-    }&apiKey=d88830c90c13486fb31a3e8449bee67e&page=${
+    }&category=${this.props.category}&apiKey=d88830c90c13486fb31a3e8449bee67e&page=${
       this.state.page - 1
     }&pageSize=${this.props.pageSize}`;
     this.setState({ loading: true });
@@ -65,7 +65,7 @@ export class News extends Component {
     ) {
       let url = `https://newsapi.org/v2/top-headlines?country=${
         this.props.country
-      }&apiKey=d88830c90c13486fb31a3e8449bee67e&page=${
+      }&category=${this.props.category}&apiKey=d88830c90c13486fb31a3e8449bee67e&page=${
         this.state.page + 1
       }&pageSize=${this.props.pageSize}`;
       this.setState({ loading: true });
@@ -83,7 +83,7 @@ export class News extends Component {
   render() {
     return (
       <div className="container my-3">
-        <h1 className="text-center">NewsMonkey - Top Headlines</h1>
+        <h1 className="text-center" >NewsMonkey - Top Headlines</h1>
         {this.state.loading && <Spinner />}
 
         <div className="row">
@@ -95,11 +95,13 @@ export class News extends Component {
                     key={element.url}
                     title={
                       element.title ? element.title.slice(0, 45) : "News Title"
+                      // element.title
                     }
                     description={
                       element.description
                         ? element.description.slice(0, 88)
                         : "News Description"
+                      // element.description
                     }
                     imageUrl={element.urlToImage}
                     newsUrl={element.url}
