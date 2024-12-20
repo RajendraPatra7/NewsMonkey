@@ -8,7 +8,12 @@ export class App extends Component {
   render() {
     return (
       <div>
-        <Router>
+        <Router
+          future={{
+            v7_startTransition: true,
+            v7_relativeSplatPath: true,
+          }}
+        >
           <Navbar />
           <Routes>
             <Route
@@ -75,21 +80,36 @@ export class App extends Component {
               exact
               path="/science"
               element={
-                <News key="" pageSize={this.pageSize} country="us" category="science" />
+                <News
+                  key=""
+                  pageSize={this.pageSize}
+                  country="us"
+                  category="science"
+                />
               }
             />
             <Route
               exact
               path="/sports"
               element={
-                <News key="" pageSize={this.pageSize} country="us" category="sports" />
+                <News
+                  key=""
+                  pageSize={this.pageSize}
+                  country="us"
+                  category="sports"
+                />
               }
             />
             <Route
               exact
               path="/technology"
               element={
-                <News key="" pageSize={this.pageSize} country="us" category="technology" />
+                <News
+                  key=""
+                  pageSize={this.pageSize}
+                  country="us"
+                  category="technology"
+                />
               }
             />
           </Routes>
