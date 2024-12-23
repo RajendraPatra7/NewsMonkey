@@ -35,23 +35,13 @@ const News = (props) => {
     // eslint-disable-next-line
   }, []);
 
-  // const handlePrevClick = async () => {
-  //   setPage(page - 1);
-  //   updateNews();
-  // };
-
-  // const handleNextClick = async () => {
-  //   setPage(page + 1);
-  //   updateNews();
-  // };
-
   const fetchMoreData = async () => {
-    setPage(page + 1);
     const url = `https://newsapi.org/v2/top-headlines?country=${
       props.country
     }&category=${props.category}&apiKey=${props.apiKey}&page=${
       page + 1
     }&pageSize=${props.pageSize}`;
+    setPage(page + 1);
     let data = await fetch(url);
     let parsedData = await data.json();
     setArticles(articles.concat(parsedData.articles));
@@ -60,7 +50,10 @@ const News = (props) => {
 
   return (
     <>
-      <h1 className="text-center">
+      <h1
+        className="text-center"
+        style={{ margin: "35px 0px", marginTop: "90px" }}
+      >
         NewsMonkey - Top {capitalizeFirstLetter(props.category)} Headlines
       </h1>
       {loading && <Spinner />}
