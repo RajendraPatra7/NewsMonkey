@@ -6,7 +6,7 @@ const Navbar = () => {
       <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
-            NewsMonkey
+            RajNews
           </a>
           <button
             className="navbar-toggler"
@@ -62,6 +62,7 @@ const Navbar = () => {
                 </a>
               </li>
             </ul>
+            <span className="navbar-text mx-3">This Website Was Made By ~ The Rajendra Patra</span>
           </div>
         </div>
       </nav>

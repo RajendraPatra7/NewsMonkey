@@ -30,7 +30,7 @@ const News = (props) => {
   };
 
   useEffect(() => {
-    document.title = `NewsMonkey ~ ${capitalizeFirstLetter(props.category)}`;
+    document.title = `RajNews ~ ${capitalizeFirstLetter(props.category)}`;
     updateNews();
     // eslint-disable-next-line
   }, []);
@@ -52,10 +52,16 @@ const News = (props) => {
     <>
       <h1
         className="text-center"
-        style={{ margin: "35px 0px", marginTop: "90px" }}
+        style={{ margin: "5px 0px", marginTop: "90px" , fontFamily: "cursive" , fontSize: "25px" }}
       >
-        NewsMonkey - Top {capitalizeFirstLetter(props.category)} Headlines
+        RajNews - Top {capitalizeFirstLetter(props.category)} Headlines
       </h1>
+      <h5
+        className="text-center"
+        style={{ fontFamily: "cursive", fontSize: "12px" }}
+      >
+        This Website Was Made By ~ " The Rajendra Patra " <p>&#10084;</p>
+      </h5>
       {loading && <Spinner />}
 
       <InfiniteScroll
